@@ -2,7 +2,7 @@ import { works, categories } from "../data/work"
 import { useState, useEffect } from "react"
 
 export default function WorkGallery() {
-  const [activeCategory, setActiveCategory] = useState("Promotional Creatives");
+  const [activeCategory, setActiveCategory] = useState("Design & CAD");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const filteredWorks = works.filter((w) => w.category === activeCategory)
   
@@ -72,7 +72,7 @@ export default function WorkGallery() {
         {/* Mobile Dropdown View */}
         <div className="block md:hidden relative px-4 max-w-sm mx-auto">
           <div className="flex items-center gap-2 mb-2 ml-2">
-            <span className="text-[10px] text-white/50 font-mono tracking-widest uppercase">Choose ur vibe</span>
+            <span className="text-[10px] text-white/50 font-mono tracking-widest uppercase">Filter by discipline</span>
             <span className="text-[#ccff00] text-[8px] animate-pulse">✦</span>
           </div>
           <button 
@@ -128,7 +128,7 @@ export default function WorkGallery() {
 
       {/* Crazy Swipe Gallery Area */}
       {filteredWorks.length > 0 ? (
-        <div className="relative w-full max-w-sm md:max-w-md h-[500px] md:h-[600px] mx-auto perspective-[2000px] mb-32 flex items-center justify-center touch-none">
+        <div className="relative w-full max-w-sm md:max-w-md h-[560px] md:h-[660px] mx-auto perspective-[2000px] mb-32 flex items-center justify-center touch-none">
           
           <div className="absolute inset-0 flex flex-col items-center justify-center cursor-pointer pointer-events-none z-30 opacity-80 mix-blend-difference">
              <div className="text-[#ccff00] font-syne font-bold uppercase tracking-widest text-sm animate-pulse flex items-center gap-3 bg-black/50 px-6 py-3 rounded-full backdrop-blur-md border border-white/10">
@@ -198,18 +198,50 @@ export default function WorkGallery() {
                     draggable={false}
                   />
                   
-                  <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none" />
-                  
-                  <div className="absolute bottom-6 left-6 right-6 pointer-events-none">
-                    <div className="flex justify-between items-end">
-                      <div>
-                        <p className="text-[#ccff00] font-mono text-xs mb-1 uppercase tracking-widest">{item.category}</p>
-                        <h3 className="font-syne text-2xl md:text-3xl font-bold text-white uppercase leading-none">{item.title}</h3>
-                      </div>
-                      <span className="text-white/60 font-mono text-sm border border-white/20 rounded-full px-3 py-1 bg-black/40 backdrop-blur-sm">
+                  <div className="absolute inset-x-0 bottom-0 h-[72%] bg-gradient-to-t from-black via-black/90 to-transparent pointer-events-none" />
+
+                  <div className="absolute bottom-5 left-5 right-5 md:bottom-6 md:left-6 md:right-6 pointer-events-none">
+                    <div className="flex justify-between items-start gap-3 mb-2">
+                      <p className="text-[#ccff00] font-mono text-[10px] md:text-xs uppercase tracking-widest">{item.category}</p>
+                      <span className="shrink-0 text-white/60 font-mono text-xs border border-white/20 rounded-full px-3 py-1 bg-black/40 backdrop-blur-sm">
                         #{actualIndex + 1}
                       </span>
                     </div>
+
+                    <h3 className="font-syne text-xl md:text-2xl font-bold text-white uppercase leading-tight">{item.title}</h3>
+
+                    {(item.org || item.period) && (
+                      <p className="font-mono text-[10px] md:text-[11px] text-white/45 uppercase tracking-widest mt-1.5 leading-relaxed">
+                        {item.org}
+                        {item.org && item.period ? " · " : ""}
+                        {item.period}
+                      </p>
+                    )}
+
+                    {item.description && (
+                      <p className="text-slate-300 text-[11px] md:text-xs leading-relaxed mt-3 line-clamp-4">
+                        {item.description}
+                      </p>
+                    )}
+
+                    {item.result && (
+                      <p className="text-[#ccff00]/90 text-[11px] md:text-xs leading-relaxed mt-3 font-medium line-clamp-3">
+                        <span className="mr-1.5">▸</span>{item.result}
+                      </p>
+                    )}
+
+                    {item.tools && item.tools.length > 0 && (
+                      <div className="flex flex-wrap gap-1.5 mt-3.5">
+                        {item.tools.slice(0, 5).map((tool) => (
+                          <span
+                            key={tool}
+                            className="font-mono text-[9px] md:text-[10px] uppercase tracking-wider text-white/70 border border-white/15 bg-white/[0.04] rounded-full px-2.5 py-1 backdrop-blur-sm"
+                          >
+                            {tool}
+                          </span>
+                        ))}
+                      </div>
+                    )}
                   </div>
                   
                   <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none" style={{ backgroundImage: "url('data:image/svg+xml,%3Csvg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cfilter id=\"noiseFilter\"%3E%3CfeTurbulence type=\"fractalNoise\" baseFrequency=\"0.65\" numOctaves=\"3\" stitchTiles=\"stitch\"/%3E%3C/filter%3E%3Crect width=\"100%25\" height=\"100%25\" filter=\"url(%23noiseFilter)\"/%3E%3C/svg%3E')"}}></div>
@@ -220,7 +252,7 @@ export default function WorkGallery() {
         </div>
       ) : (
         <div className="flex items-center justify-center h-64 w-full border-2 border-dashed border-neutral-800 rounded-3xl mb-32">
-          <p className="text-slate-500 font-mono uppercase tracking-widest text-sm">More heat dropping soon ✦</p>
+          <p className="text-slate-500 font-mono uppercase tracking-widest text-sm">More projects in progress ✦</p>
         </div>
       )}
     </div>
