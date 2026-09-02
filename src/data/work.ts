@@ -3,155 +3,284 @@ export type WorkItem = {
     title: string
     image: string
     category: string
+    /** Org or team the work was done for */
+    org?: string
+    /** Role held, e.g. "Hardware Design Engineering Intern" */
+    role?: string
+    /** Date range, e.g. "May 2026 – Present" */
+    period?: string
+    /** 1–3 sentences: what the problem was and what was designed/built */
+    description?: string
+    /** Tools, methods, and standards actually used */
+    tools?: string[]
+    /** The measured or verified outcome. Keep to real, documented results. */
+    result?: string
 }
 
 export const works: WorkItem[] = [
-    { id: 55, title: "Flyer & Poster 1", image: "/51.jpeg", category: "Flyers & Posters" },
-    { id: 56, title: "Flyer & Poster 2", image: "/52.jpeg", category: "Flyers & Posters" },
-    { id: 57, title: "Flyer & Poster 3", image: "/53.jpeg", category: "Flyers & Posters" },
-    { id: 58, title: "Flyer & Poster 4", image: "/54.jpeg", category: "Flyers & Posters" },
-    { id: 59, title: "Flyer & Poster 5", image: "/55.jpeg", category: "Flyers & Posters" },
-    { id: 60, title: "Flyer & Poster 6", image: "/56.jpeg", category: "Flyers & Posters" },
-    { id: 61, title: "Flyer & Poster 7", image: "/57.jpeg", category: "Flyers & Posters" },
-    { id: 62, title: "Flyer & Poster 8", image: "/58.jpeg", category: "Flyers & Posters" },
-    { id: 63, title: "Flyer & Poster 9", image: "/59.jpeg", category: "Flyers & Posters" },
-    { id: 64, title: "Flyer & Poster 10", image: "/60.jpeg", category: "Flyers & Posters" },
-    { id: 65, title: "Flyer & Poster 11", image: "/61.jpeg", category: "Flyers & Posters" },
-    { id: 66, title: "Flyer & Poster 12", image: "/62.jpeg", category: "Flyers & Posters" },
-    { id: 67, title: "Flyer & Poster 13", image: "/63.jpeg", category: "Flyers & Posters" },
-    { id: 68, title: "Flyer & Poster 14", image: "/64.PNG", category: "Flyers & Posters" },
-    { id: 69, title: "Flyer & Poster 15", image: "/65.PNG", category: "Flyers & Posters" },
-    { id: 70, title: "Flyer & Poster 16", image: "/66.PNG", category: "Flyers & Posters" },
-    { id: 71, title: "Flyer & Poster 17", image: "/67.jpeg", category: "Flyers & Posters" },
-    { id: 72, title: "Flyer & Poster 18", image: "/68.PNG", category: "Flyers & Posters" },
-    { id: 73, title: "Flyer & Poster 19", image: "/69.jpeg", category: "Flyers & Posters" },
-    { id: 74, title: "Flyer & Poster 20", image: "/70.jpeg", category: "Flyers & Posters" },
-    { id: 75, title: "Flyer & Poster 21", image: "/71.jpeg", category: "Flyers & Posters" },
-    { id: 76, title: "Flyer & Poster 22", image: "/72.jpeg", category: "Flyers & Posters" },
-    { id: 77, title: "Flyer & Poster 23", image: "/73.jpeg", category: "Flyers & Posters" },
-    { id: 78, title: "Flyer & Poster 24", image: "/74.jpeg", category: "Flyers & Posters" },
-    { id: 79, title: "Flyer & Poster 25", image: "/75.jpeg", category: "Flyers & Posters" },
-    { id: 80, title: "Flyer & Poster 26", image: "/76.jpeg", category: "Flyers & Posters" },
-    { id: 81, title: "Flyer & Poster 27", image: "/77.jpeg", category: "Flyers & Posters" },
-    { id: 82, title: "Flyer & Poster 28", image: "/78.jpeg", category: "Flyers & Posters" },
-    { id: 83, title: "Flyer & Poster 29", image: "/79.jpeg", category: "Flyers & Posters" },
-    { id: 84, title: "Flyer & Poster 30", image: "/80.jpeg", category: "Flyers & Posters" },
-    { id: 85, title: "Flyer & Poster 31", image: "/81.jpeg", category: "Flyers & Posters" },
-    { id: 86, title: "Flyer & Poster 32", image: "/82.jpeg", category: "Flyers & Posters" },
-    { id: 87, title: "Flyer & Poster 33", image: "/83.jpeg", category: "Flyers & Posters" },
-    { id: 88, title: "Flyer & Poster 34", image: "/84.jpeg", category: "Flyers & Posters" },
-    { id: 89, title: "Flyer & Poster 35", image: "/85.jpeg", category: "Flyers & Posters" },
-    { id: 90, title: "Flyer & Poster 36", image: "/86.jpeg", category: "Flyers & Posters" },
-    { id: 91, title: "Flyer & Poster 37", image: "/87.jpeg", category: "Flyers & Posters" },
-    { id: 92, title: "Flyer & Poster 38", image: "/88.jpeg", category: "Flyers & Posters" },
-    { id: 93, title: "Flyer & Poster 39", image: "/89.jpeg", category: "Flyers & Posters" },
-    { id: 94, title: "Flyer & Poster 40", image: "/90.jpeg", category: "Flyers & Posters" },
-    { id: 95, title: "Flyer & Poster 41", image: "/91.jpeg", category: "Flyers & Posters" },
-    { id: 96, title: "Flyer & Poster 42", image: "/92.jpeg", category: "Flyers & Posters" },
-    { id: 97, title: "Flyer & Poster 43", image: "/93.jpeg", category: "Flyers & Posters" },
-    { id: 98, title: "Flyer & Poster 44", image: "/94.jpeg", category: "Flyers & Posters" },
-    { id: 99, title: "Flyer & Poster 45", image: "/95.jpeg", category: "Flyers & Posters" },
-    { id: 100, title: "Flyer & Poster 46", image: "/96.jpeg", category: "Flyers & Posters" },
+    // ─────────────────────────────────────────────────────────────
+    // DESIGN & CAD
+    // ─────────────────────────────────────────────────────────────
     {
         id: 1,
-        title: "Flyer Design 1",
-        image: "/flyer1.jpg",
-        category: "Flyers & Posters"
+        title: "Universal Phone Holder",
+        image: "/projects/vectorcam-holder.svg",
+        category: "Design & CAD",
+        org: "Vector Control Innovations / JHU CBID",
+        role: "Hardware Design Engineering Intern",
+        period: "May 2026 – Present",
+        description:
+            "VectorCam is an AI-enabled mosquito surveillance device used in malaria-endemic regions. Its fixed camera placement didn't account for variation in phone size or camera position, so I designed a universal holder with a sliding XY adjustment stage and 3D-printed compressive springs for adaptive alignment.",
+        tools: ["SolidWorks", "FDM 3D Printing", "Rapid Prototyping", "Mechanism Design"],
+        result:
+            "Iterated across multiple printed prototypes to validate fit and imaging performance across different phones before finalizing the design.",
     },
     {
         id: 2,
-        title: "Flyer Design 2",
-        image: "/flyer2.jpg",
-        category: "Flyers & Posters"
+        title: "Crane Boom & Transmission System",
+        image: "/projects/crane-boom.svg",
+        category: "Design & CAD",
+        org: "Johns Crane Co. — JHU Mechanics-Based Design Lab",
+        role: "3-Person Design Team",
+        period: "Spring 2026",
+        description:
+            "Engineered a high-torque lifting machine that raises a 10 lb load using a single micro gearmotor. A slotted cast-acrylic boom carries a 2.93-ratio gear train and a three-wrap compound pulley, with press-fit sleeve bearings on the shafts.",
+        tools: [
+            "SolidWorks",
+            "ANSI Drawings",
+            "Laser Cutting",
+            "Lathe & Mill",
+            "Hand Calculations",
+        ],
+        result:
+            "Predicted 0.249 in boom-end deflection against a measured 0.25 in — 0.4% error, half the 0.5 in allowable. Lifted the load in 12 s against a 60 s limit, and came in at $38.29 of a $45 budget.",
     },
-    { id: 5, title: "Promotional Creative 1", image: "/01.jpeg", category: "Promotional Creatives" },
-    { id: 6, title: "Promotional Creative 2", image: "/02.jpeg", category: "Promotional Creatives" },
-    { id: 7, title: "Promotional Creative 3", image: "/03.jpeg", category: "Promotional Creatives" },
-    { id: 8, title: "Promotional Creative 4", image: "/04.jpeg", category: "Promotional Creatives" },
-    { id: 9, title: "Promotional Creative 5", image: "/05.jpeg", category: "Promotional Creatives" },
-    { id: 10, title: "Promotional Creative 6", image: "/06.jpeg", category: "Promotional Creatives" },
-    { id: 11, title: "Promotional Creative 7", image: "/07.jpeg", category: "Promotional Creatives" },
-    { id: 12, title: "Promotional Creative 8", image: "/08.jpeg", category: "Promotional Creatives" },
-    { id: 13, title: "Promotional Creative 9", image: "/09.jpeg", category: "Promotional Creatives" },
-    { id: 14, title: "Promotional Creative 10", image: "/10.jpeg", category: "Promotional Creatives" },
-    { id: 15, title: "Promotional Creative 11", image: "/11.jpeg", category: "Promotional Creatives" },
-    { id: 16, title: "Promotional Creative 12", image: "/12.jpeg", category: "Promotional Creatives" },
-    { id: 17, title: "Promotional Creative 13", image: "/13.jpeg", category: "Promotional Creatives" },
-    { id: 18, title: "Promotional Creative 14", image: "/14.jpeg", category: "Promotional Creatives" },
-    { id: 19, title: "Promotional Creative 15", image: "/15.jpeg", category: "Promotional Creatives" },
-    { id: 20, title: "Promotional Creative 16", image: "/16.jpeg", category: "Promotional Creatives" },
-    { id: 21, title: "Branding Design 1", image: "/17.jpeg", category: "Branding & Visual Identity Posts" },
-    { id: 22, title: "Branding Design 2", image: "/18.jpeg", category: "Branding & Visual Identity Posts" },
-    { id: 23, title: "Branding Design 3", image: "/19.jpeg", category: "Branding & Visual Identity Posts" },
-    { id: 24, title: "Branding Design 4", image: "/20.jpeg", category: "Branding & Visual Identity Posts" },
-    { id: 25, title: "Branding Design 5", image: "/21.jpeg", category: "Branding & Visual Identity Posts" },
-    { id: 26, title: "Branding Design 6", image: "/22.jpeg", category: "Branding & Visual Identity Posts" },
-    { id: 27, title: "Branding Design 7", image: "/23.jpeg", category: "Branding & Visual Identity Posts" },
-    { id: 28, title: "Information Post 1", image: "/24.jpeg", category: "Information / Educational Posts" },
-    { id: 29, title: "Information Post 2", image: "/25.jpeg", category: "Information / Educational Posts" },
-    { id: 30, title: "Information Post 3", image: "/26.jpeg", category: "Information / Educational Posts" },
-    { id: 31, title: "Information Post 4", image: "/27.jpeg", category: "Information / Educational Posts" },
-    { id: 32, title: "Information Post 5", image: "/28.jpeg", category: "Information / Educational Posts" },
-    { id: 33, title: "Information Post 6", image: "/29.jpeg", category: "Information / Educational Posts" },
-    { id: 34, title: "Information Post 7", image: "/30.jpeg", category: "Information / Educational Posts" },
-    { id: 35, title: "Information Post 8", image: "/31.jpeg", category: "Information / Educational Posts" },
-    { id: 36, title: "Information Post 9", image: "/32.jpeg", category: "Information / Educational Posts" },
-    { id: 37, title: "Information Post 10", image: "/33.jpeg", category: "Information / Educational Posts" },
-    { id: 38, title: "Information Post 11", image: "/34.jpeg", category: "Information / Educational Posts" },
-    { id: 39, title: "Information Post 12", image: "/35.jpeg", category: "Information / Educational Posts" },
-    { id: 40, title: "Information Post 13", image: "/36.jpeg", category: "Information / Educational Posts" },
-    { id: 41, title: "Information Post 14", image: "/37.jpeg", category: "Information / Educational Posts" },
-    { id: 42, title: "Engagement Post 1", image: "/38.jpeg", category: "Engagement driven creatives" },
-    { id: 43, title: "Engagement Post 2", image: "/39.jpeg", category: "Engagement driven creatives" },
-    { id: 44, title: "Engagement Post 3", image: "/40.jpeg", category: "Engagement driven creatives" },
-    { id: 45, title: "Engagement Post 4", image: "/41.jpeg", category: "Engagement driven creatives" },
-    { id: 46, title: "Engagement Post 5", image: "/42.jpeg", category: "Engagement driven creatives" },
-    { id: 47, title: "Engagement Post 6", image: "/43.jpeg", category: "Engagement driven creatives" },
-    { id: 48, title: "Engagement Post 7", image: "/44.jpeg", category: "Engagement driven creatives" },
-    { id: 49, title: "Engagement Post 8", image: "/45.jpeg", category: "Engagement driven creatives" },
-    { id: 50, title: "Engagement Post 9", image: "/46.jpeg", category: "Engagement driven creatives" },
-    { id: 51, title: "Engagement Post 10", image: "/47.jpeg", category: "Engagement driven creatives" },
-    { id: 52, title: "Engagement Post 11", image: "/48.jpeg", category: "Engagement driven creatives" },
-    { id: 53, title: "Information Post 15", image: "/49.jpeg", category: "Information / Educational Posts" },
-    { id: 54, title: "Information Post 16", image: "/50.jpeg", category: "Information / Educational Posts" },
-    { id: 101, title: "Product Shoot 1", image: "/97.jpeg", category: "Ecommerce Product shoot" },
-    { id: 102, title: "Product Shoot 2", image: "/98.jpeg", category: "Ecommerce Product shoot" },
-    { id: 103, title: "Product Shoot 3", image: "/99.jpeg", category: "Ecommerce Product shoot" },
-    { id: 104, title: "Product Shoot 4", image: "/100.jpeg", category: "Ecommerce Product shoot" },
-    { id: 105, title: "Product Shoot 5", image: "/101.jpeg", category: "Ecommerce Product shoot" },
-    { id: 106, title: "Product Shoot 6", image: "/102.jpeg", category: "Ecommerce Product shoot" },
-    { id: 107, title: "Product Shoot 7", image: "/103.jpeg", category: "Ecommerce Product shoot" },
-    { id: 108, title: "Product Shoot 8", image: "/104.jpeg", category: "Ecommerce Product shoot" },
-    { id: 109, title: "Product Shoot 9", image: "/105.jpeg", category: "Ecommerce Product shoot" },
-    { id: 110, title: "Product Shoot 10", image: "/106.jpeg", category: "Ecommerce Product shoot" },
-    { id: 111, title: "Lifestyle Shoot 1", image: "/107.jpeg", category: "Lifestyle Product Shoot" },
-    { id: 112, title: "Lifestyle Shoot 2", image: "/108.jpeg", category: "Lifestyle Product Shoot" },
-    { id: 113, title: "Lifestyle Shoot 3", image: "/109.jpeg", category: "Lifestyle Product Shoot" },
-    { id: 114, title: "Lifestyle Shoot 4", image: "/110.jpeg", category: "Lifestyle Product Shoot" },
-    { id: 115, title: "Lifestyle Shoot 5", image: "/111.jpeg", category: "Lifestyle Product Shoot" },
-    { id: 116, title: "Lifestyle Shoot 6", image: "/112.jpeg", category: "Lifestyle Product Shoot" },
-    { id: 117, title: "Lifestyle Shoot 7", image: "/113.jpeg", category: "Lifestyle Product Shoot" },
-    { id: 118, title: "Lifestyle Shoot 8", image: "/114.jpeg", category: "Lifestyle Product Shoot" },
-    { id: 119, title: "Lifestyle Shoot 9", image: "/115.jpeg", category: "Lifestyle Product Shoot" },
-    { id: 120, title: "Conceptual Creative 1", image: "/116.jpeg", category: "Conceptual Creatives" },
-    { id: 121, title: "Conceptual Creative 2", image: "/117.jpeg", category: "Conceptual Creatives" },
-    { id: 122, title: "Conceptual Creative 3", image: "/118.jpeg", category: "Conceptual Creatives" },
-    { id: 123, title: "Conceptual Creative 4", image: "/119.jpeg", category: "Conceptual Creatives" },
-    { id: 124, title: "Conceptual Creative 5", image: "/120.jpeg", category: "Conceptual Creatives" },
-    { id: 125, title: "Conceptual Creative 6", image: "/121.jpeg", category: "Conceptual Creatives" },
-    { id: 126, title: "Conceptual Creative 7", image: "/122.jpeg", category: "Conceptual Creatives" }
+    {
+        id: 3,
+        title: "CAD & Engineering Change Control",
+        image: "/projects/seafire-cad.svg",
+        category: "Design & CAD",
+        org: "Sea-Fire Marine",
+        role: "Mechanical Engineering & Quality Assurance Intern",
+        period: "May 2026 – Present",
+        description:
+            "Produce and refine production parts, assemblies, and drawings in SolidWorks against company drafting standards and GD&T, then carry the resulting documentation through the formal change process.",
+        tools: [
+            "SolidWorks",
+            "GD&T",
+            "ECN / Change Management",
+            "ERP Systems",
+            "Document Control",
+        ],
+        result:
+            "Managed 10 Engineering Change Notices end-to-end, coordinating CAD documentation through technical review and approval while maintaining traceability under strict file control.",
+    },
+
+    // ─────────────────────────────────────────────────────────────
+    // ANALYSIS & SIMULATION
+    // ─────────────────────────────────────────────────────────────
+    {
+        id: 4,
+        title: "Offshore Turbine Floating Base",
+        image: "/projects/turbine-base.svg",
+        category: "Analysis & Simulation",
+        org: "Hopkins Student Wind Energy Team",
+        role: "Structures Team Member",
+        period: "Aug 2024 – May 2026",
+        description:
+            "Designed and tested the floating foundation for an offshore wind turbine entered in the 2025 DOE Collegiate Wind Competition, with the governing requirement being stability under combined wind and wave loading.",
+        tools: [
+            "SolidWorks",
+            "FEA",
+            "CFD",
+            "80/20 Aluminum Extrusion",
+            "Physical Pool Testing",
+        ],
+        result:
+            "Placed 4th in Turbine Design and 5th overall out of 50+ teams. The prototype foundation supported the full turbine structure and held stability throughout competition.",
+    },
+    {
+        id: 5,
+        title: "Hovercar External Loft & Fan Intake",
+        image: "/projects/hovercar-loft.svg",
+        category: "Analysis & Simulation",
+        org: "Nexus Nova Innovations",
+        role: "Engineering Assistant, CAD/Design",
+        period: "Jun 2025 – May 2026",
+        description:
+            "Developed the external body loft and a fan intake ducting concept for a hover-car integrating hydrogen fuel cells and ducted-fan propulsion, reconstructing surfaces from reference geometry using projected curves and boundary surfaces.",
+        tools: [
+            "SolidWorks (Project Curve, Boundary Surface)",
+            "CFD",
+            "NACA Airfoil Profiles",
+            "Surface Modeling",
+        ],
+        result:
+            "Modeled roughly 50% of the vehicle frame and identified lift-maximizing intake configurations by iterating fan surface curvature against CFD feedback.",
+    },
+    {
+        id: 6,
+        title: "MIDI Gun — Structural Design",
+        image: "/projects/midigun-structure.svg",
+        category: "Analysis & Simulation",
+        org: "Independent Product Development",
+        role: "Independent Developer",
+        period: "Jun 2025 – Present",
+        description:
+            "Designed the modular, 3D-printable casing for a handheld MIDI instrument housing a microcontroller, IMU, hall-effect sensors, and tactile buttons. A mirrored pistol-grip body and four dovetail-jointed extensions allow tool-free disassembly, and a dual-spring translational trigger converts 21 mm of travel into a linear sensing range.",
+        tools: [
+            "SolidWorks",
+            "SolidWorks FEA",
+            "PETG / Material Selection",
+            "Tolerancing",
+            "DFM for FDM",
+        ],
+        result:
+            "Held sub-0.2 mm sliding fits across all translational joints. FEA under worst-case wrist-snap torque and drop loading returned a 17–32× factor of safety against PETG yield; filleting the trigger-guard cutouts reduced peak von Mises stress on retest.",
+    },
+
+    // ─────────────────────────────────────────────────────────────
+    // MANUFACTURING & QUALITY
+    // ─────────────────────────────────────────────────────────────
+    {
+        id: 7,
+        title: "Fire Suppression QA & Metrology",
+        image: "/projects/seafire-qa.svg",
+        category: "Manufacturing & Quality",
+        org: "Sea-Fire Marine",
+        role: "Mechanical Engineering & Quality Assurance Intern",
+        period: "May 2026 – Present",
+        description:
+            "Run receiving, in-process, and final inspection on fire suppression and marine safety hardware under ISO 9001, identifying nonconformances against drawing requirements. Designed 3D-printed inspection jigs to orient non-flat parts for repeatable optical measurement.",
+        tools: [
+            "Precision Metrology",
+            "Bore / Thread / Ring / Pin Gauges",
+            "Borescopes",
+            "Pressure Test Equipment",
+            "Keyence IM Optical Measurement",
+            "ISO 9001",
+        ],
+        result:
+            "Inspected 50+ unique fire suppression parts. Closed process gaps by building two ERP-integrated tools: an inspection-report PDF compiler and an ASQ sampling-size calculator.",
+    },
+    {
+        id: 8,
+        title: "FDM Print Farm Operations",
+        image: "/projects/print-farm.svg",
+        category: "Manufacturing & Quality",
+        org: "Vector Control Innovations / JHU CBID",
+        role: "Hardware Design Engineering Intern",
+        period: "May 2026 – Present",
+        description:
+            "Operated an 8-printer FDM farm producing parts on the original unmodified design to fill urgent customer orders under tight turnaround, managing scheduling, print failures, and throughput across machines.",
+        tools: ["FDM 3D Printing", "Print Farm Operations", "Production Scheduling"],
+        result: "Fulfilled urgent orders on compressed timelines without design changes.",
+    },
+    {
+        id: 9,
+        title: "DFM for Mass Production Handoff",
+        image: "/projects/dfm-analysis.svg",
+        category: "Manufacturing & Quality",
+        org: "Vector Control Innovations / JHU CBID",
+        role: "Hardware Design Engineering Intern",
+        period: "May 2026 – Present",
+        description:
+            "Applied design-for-manufacturability analysis to existing VectorCam components for a manufacturing partner in Uganda, updating geometry for improved printability and preparing the designs for future mass production along a 3D-printing to injection-molding pathway.",
+        tools: ["DFM Analysis", "SolidWorks", "FDM Process Constraints", "Injection Molding (DFM)"],
+        result:
+            "Interfaced with hardware and software teams so each design revision still met software constraints and field testing requirements.",
+    },
+
+    // ─────────────────────────────────────────────────────────────
+    // ELECTRONICS & FIRMWARE
+    // ─────────────────────────────────────────────────────────────
+    {
+        id: 10,
+        title: "MIDI Gun — Sensing & Firmware",
+        image: "/projects/midigun-firmware.svg",
+        category: "Electronics & Firmware",
+        org: "Independent Product Development",
+        role: "Independent Developer",
+        period: "Jun 2025 – Present",
+        description:
+            "Built the electronics and firmware for a gesture-controlled MIDI instrument. Analog hall-effect sensing reads continuous trigger position and an IMU reads orientation; custom Arduino firmware translates both into real-time MIDI, mapping yaw and roll to pitch and pitch bend.",
+        tools: [
+            "Arduino (C++)",
+            "Hall-Effect Sensing",
+            "IMU Integration",
+            "Breadboard Prototyping",
+            "Max/MSP",
+            "Ableton Live",
+        ],
+        result:
+            "Implemented multiple performance modes — semi, velocity-sensitive, arpeggiated, charge-release, and burst. Authored a full proposal, budget, and 12-month timeline; selected as a finalist out of 50+ submissions for the Peabody Launch Grant.",
+    },
+    {
+        id: 11,
+        title: "Analog Distortion Guitar Pedal",
+        image: "/projects/guitar-pedal.svg",
+        category: "Electronics & Firmware",
+        org: "JHU Electronics & Instrumentation",
+        role: "Independent Design Project",
+        period: "Spring 2026",
+        description:
+            "Designed and built a fully analog recreation of the Boss MD-2 distortion pedal. Annotated the open-source schematic to decide which stages were actually necessary, keeping a non-inverting op-amp gain stage and a complementary push-pull discrete output buffer, and dropped the JFET input buffer after determining the op-amp's input impedance already prevented pickup loading.",
+        tools: [
+            "Analog Circuit Design",
+            "Falstad Simulation",
+            "Op-Amps & BJTs",
+            "Oscilloscope",
+            "Function Generator",
+            "Breadboard Prototyping",
+        ],
+        result:
+            "Verified saturation and clipping at roughly 550 mV against simulation on a two-channel oscilloscope. The potentiometer sweeps from clean at 0–4 kΩ to heavy distortion at 5–10 kΩ; the pedal is slated for live band use and a Peabody computer music recital.",
+    },
+
+    // ─────────────────────────────────────────────────────────────
+    // COMPETITION & TEAM PROJECTS
+    // ─────────────────────────────────────────────────────────────
+    {
+        id: 12,
+        title: "Movie-Inspired Arcade Game",
+        image: "/projects/arcade-game.svg",
+        category: "Competition & Team Projects",
+        org: "JHU Freshman Design",
+        role: "Design Team Collaborator",
+        period: "Jan 2025 – May 2025",
+        description:
+            "Built a Princess Bride–themed arcade game driving three motors through mechanical outputs — a rotating table, a curtain, and pouring effects — inside a fabricated hardboard enclosure with custom steel brackets and hidden cable routing.",
+        tools: [
+            "SolidWorks",
+            "3D Printing",
+            "Bandsaw & Machining",
+            "Arduino (C++)",
+            "Soldering",
+            "Ableton Live",
+        ],
+        result:
+            "Ran flawlessly for 1.5+ hours at the JHU Freshman Design Exhibition. Gameplay used an exponential-decay probability model and a high-score counter, with 23 original audio cues, delivered under a $60 budget.",
+    },
+    {
+        id: 13,
+        title: "Vehicle & Glider Launch System",
+        image: "/projects/vehicle-glider.svg",
+        category: "Competition & Team Projects",
+        org: "JHU Freshman Design",
+        role: "Design Team Collaborator",
+        period: "Aug 2024 – Dec 2024",
+        description:
+            "Designed a vehicle that travels down a ramp and transfers impact energy into launching a glider over a 4 ft barrier, with travel distance past the barrier as the objective. Refined the body and wings through iterative prototyping, testing, and redesign.",
+        tools: ["CAD", "Laser Cutting", "3D Printing", "Woodworking", "Iterative Prototyping"],
+        result:
+            "Placed 2nd out of 32 teams in the JHU Freshman Design Competition with a 100% barrier clearance rate across all four competition rounds.",
+    },
 ]
 
 export const categories = [
-    "Promotional Creatives",
-    "Branding & Visual Identity Posts",
-    "Information / Educational Posts",
-    "Engagement driven creatives",
-    "Flyers & Posters",
-    "Ecommerce Product shoot",
-    "Lifestyle Product Shoot",
-    "Conceptual Creatives",
-    "Content Campaigns",
-    "Motion Creatives",
-    "Cinematography",
+    "Design & CAD",
+    "Analysis & Simulation",
+    "Manufacturing & Quality",
+    "Electronics & Firmware",
+    "Competition & Team Projects",
 ]

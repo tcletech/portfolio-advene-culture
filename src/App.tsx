@@ -22,9 +22,9 @@ export default function App() {
         >
           {[...Array(6)].map((_, i) => (
             <span key={i} className="mx-4 flex items-center gap-4">
-              <span>CREATIVE VISIONARY</span>
+              <span>MECHANICAL ENGINEERING</span>
               <span>✦</span>
-              <span>DIGITAL ARTIST</span>
+              <span>JOHNS HOPKINS UNIVERSITY</span>
               <span>✦</span>
             </span>
           ))}
@@ -45,7 +45,7 @@ export default function App() {
         >
           <img 
             src="/logo.svg" 
-            alt="Artist Logo" 
+            alt="Harrison TC Le" 
             className="h-12 md:h-16 w-auto object-contain drop-shadow-[0_0_15px_rgba(204,255,0,0.5)] hover:scale-105 transition-transform cursor-pointer" 
           />
         </motion.div>
@@ -60,10 +60,10 @@ export default function App() {
           <div className="w-full">
             <h1 className="font-syne text-[9vw] leading-[1.1] sm:text-[4rem] md:text-[5.5rem] lg:text-[6rem] xl:text-[7rem] font-extrabold tracking-tighter mb-4 w-full">
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-slate-100 to-slate-500 whitespace-nowrap">
-                NOT UR 
+                HARRISON
               </span>
               <span className="flex items-center gap-2 md:gap-4 flex-wrap md:flex-nowrap whitespace-nowrap">
-                AVERAGE
+                TC LE
                 <div className="inline-block shrink-0 w-[8vw] h-[8vw] sm:w-12 sm:h-12 md:w-20 md:h-20 xl:w-24 xl:h-24 bg-[#ccff00] rounded-full animate-float flex items-center justify-center text-black text-[4vw] sm:text-2xl md:text-3xl xl:text-5xl border-2 border-black ml-2 mt-2 md:mt-0">
                   ✦
                 </div>
@@ -74,7 +74,7 @@ export default function App() {
             </h1>
           </div>
           <div className="max-w-xs text-slate-400 mt-8 lg:mt-0 font-medium lg:text-right text-lg shrink-0">
-            <p className="leading-relaxed">Welcome to my digital scrapbook. Blending code, culture, and pure unadulterated chaos.</p>
+            <p className="leading-relaxed">Mechanical engineering and computer music at Johns Hopkins. CAD, prototyping, quality inspection, and hardware that has to work outside the lab.</p>
           </div>
         </motion.div>
 
@@ -86,7 +86,7 @@ export default function App() {
           className="w-full border-t border-white/10 pt-16 mt-8"
         >
           <div className="flex items-center justify-between mb-12">
-            <h2 className="font-syne text-3xl font-bold uppercase tracking-tight">Selected Archives</h2>
+            <h2 className="font-syne text-3xl font-bold uppercase tracking-tight">Selected Projects</h2>
             <div className="hidden md:flex gap-2">
               <span className="w-3 h-3 rounded-full bg-white/20"></span>
               <span className="w-3 h-3 rounded-full bg-white/40"></span>
@@ -104,9 +104,9 @@ export default function App() {
             <div className="flex animate-marquee min-w-max" style={{ animationDuration: '240s' }}>
               {[...Array(6)].map((_, i) => (
                 <span key={i} className="mx-6 flex items-center gap-6">
-                  <span>AVAILABLE FOR WORK</span>
+                  <span>OPEN TO SUMMER 2027 INTERNSHIPS</span>
                   <span className="text-xl">✱</span>
-                  <span>LET'S BUILD SOMETHING CRAZY</span>
+                  <span>DESIGN · MANUFACTURING · HARDWARE</span>
                   <span className="text-xl">✱</span>
                 </span>
               ))}
@@ -123,7 +123,7 @@ export default function App() {
             
             {/* Outline Background Text Effect */}
             <h2 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-syne text-[25vw] sm:text-[15rem] font-bold uppercase whitespace-nowrap text-transparent opacity-10 pointer-events-none select-none mix-blend-overlay" style={{ WebkitTextStroke: '2px white' }}>
-              HIT ME UP
+              GET IN TOUCH
             </h2>
 
             {/* Glowing noise overlay */}
@@ -136,7 +136,7 @@ export default function App() {
             
             <div className="font-mono text-slate-400 text-sm md:text-base max-w-md uppercase tracking-widest mb-12 relative z-10 w-full h-[150px] cursor-pointer" title="Hover me!">
               <FallingText
-                text="Got a crazy idea? Need some next-level visuals? Slide into the DMs or drop a message. No boring projects allowed."
+                text="Open to Summer 2027 mechanical engineering internships. Reach out about design, manufacturing, or hardware roles."
                 highlightWords={[]}
                 highlightClass=""
                 trigger="hover"
@@ -150,26 +150,24 @@ export default function App() {
 
             <div className="flex flex-col sm:flex-row gap-6 w-full md:w-auto relative z-10 items-center justify-center">
               <a 
-                href="https://www.instagram.com/adveneculture?igsh=MWlzaGxrNTlrdzRmYQ==" 
+                href="https://linkedin.com/in/harrison-le-meche" 
                 target="_blank" 
                 rel="noreferrer"
-                className="group/btn relative px-10 py-5 bg-black/50 border border-white/20 rounded-full overflow-hidden text-center backdrop-blur-md w-full sm:w-auto flex items-center justify-center gap-3 transition-all duration-300 hover:border-pink-500/50 hover:bg-neutral-900"
+                className="group/btn relative px-10 py-5 bg-black/50 border border-white/20 rounded-full overflow-hidden text-center backdrop-blur-md w-full sm:w-auto flex items-center justify-center gap-3 transition-all duration-300 hover:border-teal-400/50 hover:bg-neutral-900"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-600 via-pink-500 to-orange-500 opacity-0 group-hover/btn:opacity-20 transition-opacity duration-500" />
-                <span className="relative z-10 font-syne font-bold uppercase tracking-widest text-sm text-white group-hover/btn:text-pink-300 transition-colors">
-                  Instagram
+                <div className="absolute inset-0 bg-gradient-to-r from-teal-500 via-cyan-500 to-blue-500 opacity-0 group-hover/btn:opacity-20 transition-opacity duration-500" />
+                <span className="relative z-10 font-syne font-bold uppercase tracking-widest text-sm text-white group-hover/btn:text-teal-300 transition-colors">
+                  LinkedIn
                 </span>
-                <span className="text-pink-500 text-lg group-hover/btn:rotate-12 transition-transform duration-300">✦</span>
+                <span className="text-teal-400 text-lg group-hover/btn:rotate-12 transition-transform duration-300">✦</span>
               </a>
               
               <a 
-                href="https://wa.me/9923200206" 
-                target="_blank" 
-                rel="noreferrer"
+                href="mailto:hle34@jh.edu" 
                 className="group/btn relative px-10 py-5 bg-[#ccff00] text-black rounded-full overflow-hidden text-center transition-all duration-300 shadow-[0_0_40px_rgba(204,255,0,0.15)] hover:shadow-[0_0_60px_rgba(204,255,0,0.4)] w-full sm:w-auto hover:scale-105 active:scale-95 flex items-center justify-center gap-3"
               >
                 <span className="relative z-10 font-syne font-black uppercase tracking-widest text-sm">
-                  WhatsApp 
+                  Email Me
                 </span>
                 <span className="text-xl leading-none -mt-1 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform inline-block font-black">↗</span>
               </a>
@@ -201,17 +199,17 @@ export default function App() {
           <div className="flex flex-col items-center md:items-start">
             <img 
               src="/logo.svg" 
-              alt="Artist Logo" 
+              alt="Harrison TC Le" 
               className="h-10 w-auto object-contain opacity-50 mb-6 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300" 
             />
             <p className="font-mono text-sm text-slate-500 uppercase tracking-widest text-center md:text-left">
-              &copy; 2026 Advene Culture. <br className="block sm:hidden"/> All rights reserved.
+              &copy; 2026 Harrison TC Le. <br className="block sm:hidden"/> All rights reserved.
             </p>
           </div>
           
           <div className="flex gap-4 items-center">
             <span className="font-syne font-bold text-sm uppercase tracking-widest text-slate-400">
-              Designed for impact.
+              Built in Baltimore, MD.
             </span>
             <span className="text-[#ccff00] text-2xl animate-pulse">✦</span>
           </div>
